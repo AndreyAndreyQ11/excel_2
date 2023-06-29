@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Чтение файла Excel в браузере</title>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <input type="file" id="inputFile" accept=".xlsx, .xls" />
+    <div id="output"></div>
+
+    <script>
+      document
+        .getElementById("inputFile")
+        .addEventListener("change", function (event) {
+          var file = event.target.files[0];
+
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, { type: "array" });
+            var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            var cellValue = worksheet.A1.v; // Пример чтения значения из ячейки A1
+            document.getElementById("output").textContent = cellValue;
+          };
+
+          reader.readAsArrayBuffer(file);
+        });
+    </script>
+  </body>
+</html>
