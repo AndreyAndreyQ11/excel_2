@@ -23,30 +23,35 @@ document
     reader.readAsArrayBuffer(file);
   });
 //
-// let q1 = ["Арматурыа 10", 0, 0, 0];
+function alignColumns(text) {
+  const lines = text.split("\n");
+  const columns = lines.map((line) => line.split(/\s+/));
+  const maxColumnWidths = columns.reduce((maxWidths, column) => {
+    column.forEach((cell, index) => {
+      const cellWidth = cell.length;
+      maxWidths[index] = Math.max(maxWidths[index] || 0, cellWidth);
+    });
+    return maxWidths;
+  }, []);
 
-// let convectorrr = (item) => {
-//   const unitOfMeasurement = {
-//     Арматура: ["ГРН/М.П.", `М * ${item[1]} =`],
-//     Анкер: ["ГРН/ШТ", `ШТ * ${item[1]} =`],
-//     Бетон: ["ГРН/М2", `М2 * ${item[1]} =`],
-//   };
+  const alignedLines = lines.map((line) => {
+    const cells = line.split(/\s+/);
+    const alignedCells = cells.map((cell, index) => {
+      const maxWidth = maxColumnWidths[index];
+      const padding = maxWidth - cell.length + 1;
+      return cell + " ".repeat(padding);
+    });
+    return alignedCells.join(" ");
+  });
 
-//   function extractSubstring(str) {
-//     const spaceIndex = str.indexOf(" ");
-//     if (spaceIndex !== -1) {
-//       return str.substring(0, spaceIndex);
-//     } else {
-//       return str;
-//     }
-//   }
-//   //
+  return alignedLines.join("<br>") + "<br>";
+}
 
-//   for (const key in unitOfMeasurement) {
-//     if (key.toLowerCase() == extractSubstring(item[0]).toLowerCase()) {
-//       return [...item, ...unitOfMeasurement[key]];
-//     }
-//   }
-//   return [...item, ...["\\\\\\", `\\\\\\ * ${item[1]} =`]];
-// };
-// console.log(convectorrr(q1));
+// Пример использования
+const text = `ТРУБА 325Х8         1390 ГРН/М.П.       65 М * 1390 = 90350
+  ТРУБА 273Х8         1160 ГРН/М.П.       133 М * 1160 = 154280
+  ТРУБА 100Х100Х3         458 ГРН/М.П.       204 М * 458 = 93432
+  ТРУБА 80Х60Х3         313 ГРН/М.П.       156 М * 313 = 48828`;
+
+const alignedText = alignColumns(text);
+document.getElementById("output").innerHTML = `<pre>${alignedText}</pre>`;
