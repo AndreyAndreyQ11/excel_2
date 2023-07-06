@@ -24,21 +24,17 @@ input {
   font-size: 12px;
   text-align: left;
   text-transform: uppercase;
-  line-height: normal;
+  line-height: 0.2;
 
   border: 1px solid rgb(0, 0, 0);
   min-width: 100px;
   min-height: 50px;
 }
-.вй {
-  margin-top: 50px;
-  border: 1px solid rgb(0, 0, 0);
 
-  min-width: 100px;
-  min-height: 50px;
-
-  text-align: left;
-  line-height: 0.2;
-  font-size: 16px;
-  text-transform: uppercase;
+.startSpaces {
+  margin: 0;
+  width: 75px;
+  position: absolute;
+  top: 1%;
+  left: 1%;
 }
