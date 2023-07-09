@@ -22,6 +22,7 @@ input {
 .dataInput {
   font-family: Arimo, sans-serif;
   font-size: 12px;
+  word-spacing: -0.5ch;
   text-align: left;
   text-transform: uppercase;
   line-height: 0.2;
