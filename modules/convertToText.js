@@ -2,7 +2,7 @@
 import numberSeparator from "./numberSeparator.js";
 //
 export default function convertToText(arr) {
-  const startSpaces = document.querySelector(".startSpaces").value;
+  const startSpaces = 68;
   //
   const array = arr
     .map((item) => {
@@ -10,7 +10,7 @@ export default function convertToText(arr) {
         return [
           `${item[0]}`,
           `${item[1]} ${item[4]}`,
-          `${item[2]} ${item[5]} ${numberSeparator(item[3])} грн`,
+          `${item[2]} ${item[5]}${numberSeparator(item[3])} грн`,
         ];
       }
       if (item[0] && !item[1]) {
@@ -38,7 +38,7 @@ export default function convertToText(arr) {
   for (let i = 0; i < array.length; i++) {
     text += `<pre>${array[i][0]}${importSpaces(textLength[i][0])}${
       array[i][1]
-    }${importSpaces(textLength[i][1])}${array[i][2]}</pre>`;
+    }     ${array[i][2]}</pre>`;
   }
   return text;
 }

@@ -31,11 +31,3 @@ input {
   min-width: 100px;
   min-height: 50px;
 }
-
-.startSpaces {
-  margin: 0;
-  width: 75px;
-  position: absolute;
-  top: 1%;
-  left: 1%;
-}
