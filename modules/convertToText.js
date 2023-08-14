@@ -2,9 +2,10 @@
 import numberSeparator from "./numberSeparator.js";
 import textEnd_1 from "./textEnd_1.js";
 import textEnd_2 from "./textEnd_2.js";
+import importSpaces from "./importSpaces.js";
 //
 export default function convertToText(arr) {
-  const startSpaces = 69;
+  
   //
   const array = arr
     .map((item) => {
@@ -29,29 +30,9 @@ export default function convertToText(arr) {
         return [`${item[0]}`, ``, ``];
       }
     })
-    .filter((el) => (el ? el : null));
+  .filter((el) => (el ? el : null));
 
-  //
-  const textLength = array.map((item) => {
-    if (item[0] == "Витратні матеріали крат. 10 000") {
-      return item;
-    }
-    //
-    return item.map((el) => {
-      return el.replace(/<[^>]*>/g, "").length;
-    });
-  });
-  const importSpaces = (n) => {
-    let spaces = "";
-    let length = startSpaces - n * 2;
-
-    for (let i = 0; i < length; i++) {
-      spaces += " ";
-    }
-    return spaces;
-  };
-
-  //
+  
   let text = "";
   for (let i = 0; i < array.length; i++) {
     if (
@@ -71,7 +52,7 @@ export default function convertToText(arr) {
       continue;
     }
 
-    text += `<pre>${array[i][0]}${importSpaces(textLength[i][0])}${
+    text += `<pre>${array[i][0]}${importSpaces(array[i][0])}${
       array[i][1]
     }     ${array[i][2]}</pre>`;
   }
