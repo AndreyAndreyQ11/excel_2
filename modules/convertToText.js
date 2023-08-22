@@ -52,9 +52,9 @@ export default function convertToText(arr) {
       continue;
     }
 
-    text += `<pre>${array[i][0]}${importSpaces(array[i][0])}${
+    text += `<pre>${array[i][0]}${importSpaces(array[i][0],70)}${
       array[i][1]
-    }     ${array[i][2]}</pre>`;
+    }${importSpaces(array[i][1],32)}${array[i][2]}</pre>`;
   }
   return text;
 }

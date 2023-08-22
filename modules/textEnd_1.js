@@ -12,17 +12,17 @@ export default function textEnd_1(array, i) {
         <pre>${separator(array[i + 3][2])} </pre>
         <pre><br></pre>
         <pre><br></pre>
-        <pre><strong>площа забудови:</strong>                                                                                     ${numberSeparator(
+        <pre><strong>площа забудови:</strong>                                                                                       ${numberSeparator(
           array[i + 4][0]
         )} м2</pre>
-        <pre><strong>орієнтована підсумкова вартість матеріалів з пдв: </strong>                   ${separator(
+        <pre><strong>орієнтована підсумкова вартість матеріалів з пдв: </strong>                  ${separator(
           array[i + 4][1]
         )} грн</pre>
-        <pre><strong>вартість робіт зі зведення складу з пдв:</strong>                                       ${separator(
+        <pre><strong>вартість робіт зі зведення складу з пдв:</strong>                                         ${separator(
           array[i + 5][1]
         )} грн</pre>
         <pre><br></pre>
-        <pre><strong>підсумкова вартість будівництва (роботи+матеріали) з пдв:</strong>    ${separator(
+        <pre><strong>підсумкова вартість будівництва (роботи+матеріали) з пдв:</strong>  ${separator(
           array[i + 6][1]
         )} грн</pre>
         <pre><br></pre>`;

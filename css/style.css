@@ -1,12 +1,13 @@
 /* @import url("zeroStyle.css"); */
 @font-face {
   font-family: Arimo;
-  src: url(/path/to/arimo.ttf);
+  src: url(/fonts/arimo/arimo.ttf);
 }
+
 
 body {
   background: #90ee90;
-  font-family: Calibri, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Calibri, sans-serif;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -16,13 +17,14 @@ body {
 }
 
 input {
-  /* border: 1px solid rgb(0, 0, 0); */
   margin-top: 50px;
+  border: none;
+  outline: none;
 }
 .dataInput {
-  font-family: Arimo, sans-serif;
+  font-family: 'Arimo';
   font-size: 12px;
-  word-spacing: -0.5ch;
+  /* word-spacing: -0.5ch; */
   text-align: left;
   text-transform: uppercase;
   line-height: 0.2;
@@ -30,4 +32,8 @@ input {
   border: 1px solid rgb(0, 0, 0);
   min-width: 100px;
   min-height: 50px;
+}
+
+pre{
+  font-family: 'Arimo';
 }
