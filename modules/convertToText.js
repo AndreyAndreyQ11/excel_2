@@ -48,7 +48,6 @@ export default function convertToText(arr) {
     if (array[i][0] == "Витратні матеріали крат. 10 000") {
       text += textEnd_2(array, i);
 
-      i += 4;
       continue;
     }
 

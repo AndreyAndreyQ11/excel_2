@@ -28,8 +28,26 @@ export default function convector(cell, lastRow) {
       cellsQ1.push(rowOfCells);
       continue;
     }
-    //
-
+    // кастыль для пола
+    // if (
+    //   cell[String.fromCharCode(66) + i] &&
+    //   cell[String.fromCharCode(66) + i].v == "Витратні матеріали крат. 10 000"
+    // ) {
+    //   rowOfCells = [
+    //     cell[String.fromCharCode(66) + i].v,
+    //     "1",
+    //     "1",
+    //     "1",
+    //     cell[String.fromCharCode(66 + 3) + (i + 0)].v,
+    //     cell[String.fromCharCode(66 + 3) + (i + 1)].v,
+    //     cell[String.fromCharCode(66 + 3) + (i + 2)].v,
+    //     cell[String.fromCharCode(66 + 3) + (i + 3)].v,
+    //     cell[String.fromCharCode(66 + 3) + (i + 4)].v,
+    //   ];
+    //   cellsQ1.push(rowOfCells);
+    //   continue;
+    // }
+    // 
     if (
       cell[String.fromCharCode(66) + i] &&
       cell[String.fromCharCode(66) + i].v !== "Найменування"
