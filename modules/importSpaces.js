@@ -159,7 +159,7 @@ const symbolWidths = {
 };
 //
 export default function importSpaces(str, startNumber) {
-  console.log(symbolWidths);
+  // console.log(symbolWidths);
   //
   const str2 = str.replace(/<[^>]*>/g, "").toUpperCase();
 
@@ -182,7 +182,7 @@ export default function importSpaces(str, startNumber) {
   for (let i = 0; i < length; i++) {
     spaces += " ";
   }
-  // spaces = str2.length >= 18 ? spaces + " " : spaces;
+  spaces = str2.length >= 18 ? spaces + " " : spaces;
   // console.log(str2,startNumber)
   return spaces;
 }

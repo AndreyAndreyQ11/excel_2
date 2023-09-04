@@ -9,7 +9,7 @@ export default function convertToText(arr) {
   //
   const array = arr
     .map((item) => {
-      if (item[0] == "Витратні матеріали крат. 10 000") {
+      if (item[0] == "Витратні матеріали крат. 10 000" || item[0] =="витратні матеріали (грунтовка, електроди, і т.д.)") {
         return item;
       }
       if (!!Number(item[0])) {
@@ -23,7 +23,7 @@ export default function convertToText(arr) {
         return [
           `${item[0]}`,
           `${item[1]} ${item[4]}`,
-          `${item[2]} ${item[5]}${numberSeparator(item[3])} грн`,
+          `${item[2]} ${item[5]}${numberSeparator(Math.round(item[3] / 1000) * 1000  )} грн`,
         ];
       }
       if (item[0] && !item[1]) {
@@ -34,20 +34,19 @@ export default function convertToText(arr) {
 
   
   let text = "";
+  // console.log(array)
   for (let i = 0; i < array.length; i++) {
     if (
       array[i][0] ==
-      "<strong>витратні матеріали (грунтовка, електроди, і т.д.)</strong>"
+      "витратні матеріали (грунтовка, електроди, і т.д.)"
     ) {
-      text += textEnd_1(array, i);
-
-      i += 6;
-      continue;
+        text += textEnd_1(array[i]);
+        continue;
+     
     }
 
     if (array[i][0] == "Витратні матеріали крат. 10 000") {
-      text += textEnd_2(array, i);
-
+      text += textEnd_2(array[i]);
       continue;
     }
 
