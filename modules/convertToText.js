@@ -23,7 +23,7 @@ export default function convertToText(arr) {
         return [
           `${item[0]}`,
           `${item[1]} ${item[4]}`,
-          `${item[2]} ${item[5]}${numberSeparator(Math.round(item[3] / 1000) * 1000  )} грн`,
+          `${item[2]} ${item[5]}${numberSeparator(Math.round(item[3]* 1000 )  / 1000 )} грн`,
         ];
       }
       if (item[0] && !item[1]) {
