@@ -14,7 +14,7 @@ export default function textEnd_1(array) {
   }
 
 
-  return `<pre><strong>витратні матеріали (грунтовка, електроди, і т.д.)</strong></pre>
+  return `<pre><strong>витратні матеріали (фарба, електроди, і т.д.)</strong></pre>
         <pre>${numberSeparator(array[4])} грн</pre>
         ${logistics(array)}
         <pre><br></pre>
@@ -25,7 +25,7 @@ export default function textEnd_1(array) {
         <pre><strong>орієнтована підсумкова вартість матеріалів з пдв: </strong>                  ${numberSeparator(
           array[6]
         )} грн</pre>
-        <pre><strong>вартість робіт зі зведення складу з пдв:</strong>                                         ${numberSeparator(
+        <pre><strong>вартість робіт із зведення складу з пдв:</strong>                                         ${numberSeparator(
           array[7]
         )} грн</pre>
         <pre><br></pre>
