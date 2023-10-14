@@ -11,13 +11,18 @@ export default function convector(cell, lastRow) {
     let rowOfCells = [];
     // console.log(cell[String.fromCharCode(66) + i]);
 
-    // кастіль для склада 
+    // кастіль для склада
     if (
       cell[String.fromCharCode(66) + i] &&
       cell[String.fromCharCode(66) + i].v == "Витратні матеріали"
     ) {
-      if (cell[String.fromCharCode(66) + (i + 3)] &&
-      cell[String.fromCharCode(66) + (i + 3)].v=="Логистичні послуги"){
+      if (
+        cell[String.fromCharCode(66) + (i + 2)] &&
+        (cell[String.fromCharCode(66) + (i + 2)].v.toLowerCase() ==
+          "логистика" ||
+          cell[String.fromCharCode(66) + (i + 2)].v.toLowerCase() ==
+            "логістика")
+      ) {
         rowOfCells = [
           "витратні матеріали (грунтовка, електроди, і т.д.)",
           "1",
@@ -30,8 +35,8 @@ export default function convector(cell, lastRow) {
           cell[String.fromCharCode(66 + 1) + (i + 6)].v,
           cell[String.fromCharCode(66 + 3) + (i + 3)].v,
         ];
-        i=i+6;
-      } else{
+        i = i + 6;
+      } else {
         rowOfCells = [
           "витратні матеріали (грунтовка, електроди, і т.д.)",
           "1",
@@ -43,14 +48,13 @@ export default function convector(cell, lastRow) {
           cell[String.fromCharCode(66 + 1) + (i + 3)].v,
           cell[String.fromCharCode(66 + 1) + (i + 4)].v,
         ];
-        i=i+5;
+        i = i + 5;
       }
-      
-     
+
       cellsQ1.push(rowOfCells);
       continue;
     }
-   
+
     // кастыль для подпорной стенки
     if (
       cell[String.fromCharCode(66) + i] &&
@@ -89,7 +93,7 @@ export default function convector(cell, lastRow) {
     //   cellsQ1.push(rowOfCells);
     //   continue;
     // }
-    // 
+    //
     if (
       cell[String.fromCharCode(66) + i] &&
       cell[String.fromCharCode(66) + i].v !== "Найменування"
@@ -103,7 +107,7 @@ export default function convector(cell, lastRow) {
     }
     cellsQ1.push(rowOfCells);
   }
-  console.log(cellsQ1)
+  console.log(cellsQ1);
   //Проверка на слова исключения
   let cellsQ2 = exceptionWords(cellsQ1);
   // Подставляем еденицы измерения
